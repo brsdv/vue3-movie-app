@@ -1,0 +1,68 @@
+<div class="detail-page">
+    <section>
+        <ui-grid>
+            <ui-grid-cell columns="3">
+                <img :src="getMovieImage" :alt="movie.title">
+            </ui-grid-cell>
+            <ui-grid-cell columns="9">
+                <div class="detail-page__title" :class="$tt('headline3')">{{ movie.title }}</div>
+                <div class="detail-page__info">
+                    <div
+                        v-for="item in getMovieInfo"
+                        :key="item.id"
+                        class="detail-page__info-container"
+                    >
+                        <div class="detail-page__info-wrapper" v-if="item.value">
+                            <div class="detail-page__info-title">{{ item.name }}:</div>
+                            <div class="detail-page__info-overview" v-if="item.name === 'genres'">
+                                <span v-for="genre in item.value" :key="genre.id">
+                                    {{ genre.name }}
+                                </span>
+                            </div>
+                            <div class="detail-page__info-overview" v-else>{{ item.value }}</div>
+                        </div>
+                    </div>
+                </div>
+            </ui-grid-cell>
+        </ui-grid>
+    </section>
+    <section v-if="getMovieBackdrops?.length">
+        <ui-divider>Backdrops images</ui-divider>
+        <swiper
+            navigation
+            :pagination="{ clickable: true }"
+            :zoom="true"
+            :modules="modules"
+        >
+            <swiper-slide
+                v-for="(image, index) in getMovieBackdrops"
+                :key="`slide-${index}`"
+            >
+                <div class="swiper-zoom-container">
+                    <img :src="`${posterPath}${image.file_path}`" :alt="`slide-${index}`">
+                </div>
+            </swiper-slide>
+        </swiper>
+    </section>
+    <section v-if="getMovieBackdrops?.length">
+        <ui-divider>Credits of Cast</ui-divider>
+        <ui-grid>
+            <ui-grid-cell columns="12">
+                <ui-table
+                    :data="getTableCast.data"
+                    :thead="getTableCast.thead"
+                    :tbody="getTableCast.tbody"
+                    fullwidth
+                >
+                    <template #profile_path="{ data }">
+                        <img
+                            :src="getCastImage(data.profile_path)"
+                            :alt="data.name"
+                            class="detail-page__cast-image"
+                        >
+                    </template>
+                </ui-table>
+            </ui-grid-cell>
+        </ui-grid>
+    </section>
+</div>

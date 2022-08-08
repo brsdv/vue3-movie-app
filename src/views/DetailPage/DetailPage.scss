@@ -1,0 +1,59 @@
+.detail-page {
+    &__title {
+        margin-bottom: 24px;
+    }
+
+    &__info {
+        &-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+
+            & + & {
+                margin-top: 8px;
+            }
+        }
+
+        &-wrapper {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        &-title {
+            display: inline-flex;
+            flex: 0 1 15%;
+            font-weight: 700;
+            text-transform: capitalize;
+            text-align: left;
+        }
+
+        &-overview {
+            flex: 0 1 85%;
+            text-align: left;
+            margin-left: 8px;
+
+            span {
+                + span {
+                    padding-left: 4px;
+                }
+
+                &:not(:last-child) {
+                    &::after {
+                        content: ',';
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+
+    &__cast {
+        &-image {
+            width: 100%;
+            max-width: 80px;
+        }
+    }
+}

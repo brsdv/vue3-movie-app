@@ -1,0 +1,35 @@
+<ui-grid>
+    <ui-grid-cell columns="6">
+        <ui-select
+            v-model="selectedOfType"
+            :options="optionsOfType"
+            @selected="onSelectedType($event)"
+            outlined
+        >
+            Type
+        </ui-select>
+    </ui-grid-cell>
+    <ui-grid-cell columns="6">
+        <ui-select
+            v-model="selectedOfYear"
+            :options="optionsOfYear"
+            @selected="onSelectedYear($event)"
+            outlined
+        >
+            Year
+        </ui-select>
+    </ui-grid-cell>
+</ui-grid>
+
+<ui-divider>Top 10</ui-divider>
+
+<ui-grid>
+    <ui-grid-cell columns="12" align="middle">
+        <CardMovie
+            v-for="movie in dataMovies"
+            :key="movie.id"
+            :item="movie"
+            :type="selectedOfType"
+        />
+    </ui-grid-cell>
+</ui-grid>
