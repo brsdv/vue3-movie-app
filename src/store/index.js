@@ -70,7 +70,7 @@ export default createStore({
         async getMovies({ commit }, { type, year }) {
             if (year === 'all') year = ''
             const yearParam = type === 'movie' ? `primary_release_year=${year}` : `first_air_date_year=${year}`
-            await getApi('get', `discover/${type}/?${yearParam}&certification=G&sort_by=vote_average.desc`, {},
+            await getApi('get', `discover/${type}/?${yearParam}&certification=G&sort_by=vote_average.asc`, {},
                 response => {
                     if (type === 'movie') commit('SET_MOVIES', response.data)
                     else commit('SET_SERIALS', response.data)
