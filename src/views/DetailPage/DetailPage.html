@@ -1,10 +1,10 @@
 <div class="detail-page">
     <section>
         <ui-grid>
-            <ui-grid-cell columns="3">
+            <ui-grid-cell columns="3" class="detail-page__container">
                 <img :src="getMovieImage" :alt="movie.title">
             </ui-grid-cell>
-            <ui-grid-cell columns="9">
+            <ui-grid-cell columns="9" class="detail-page__container">
                 <div class="detail-page__title" :class="$tt('headline3')">{{ movie.title }}</div>
                 <div class="detail-page__info">
                     <div

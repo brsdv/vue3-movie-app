@@ -29,16 +29,18 @@
         </ui-card-actions>
         <ui-card-icons>
             <div class="card__action">
-                <ui-icon class="card__action-icon" title="Popularity">movie</ui-icon>
-                <span>Popularity: <strong>{{ movie.popularity }}</strong></span>
-            </div>
-            <div class="card__action">
-                <ui-icon class="card__action-icon" title="Vote average">star</ui-icon>
-                <span>Vote average: <strong>{{ movie.vote_average }}</strong></span>
-            </div>
-            <div class="card__action">
-                <ui-icon class="card__action-icon" title="Vote count">people</ui-icon>
-                <span>Vote count: <strong>{{ movie.vote_count }}</strong></span>
+                <div class="card__action-wrapper">
+                    <ui-icon class="card__action-icon" title="Popularity">movie</ui-icon>
+                    <span>Popularity: <strong>{{ movie.popularity }}</strong></span>
+                </div>
+                <div class="card__action-wrapper">
+                    <ui-icon class="card__action-icon" title="Vote average">star</ui-icon>
+                    <span>Vote average: <strong>{{ movie.vote_average }}</strong></span>
+                </div>
+                <div class="card__action-wrapper">
+                    <ui-icon class="card__action-icon" title="Vote count">people</ui-icon>
+                    <span>Vote count: <strong>{{ movie.vote_count }}</strong></span>
+                </div>
             </div>
         </ui-card-icons>
     </ui-card-actions>

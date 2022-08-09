@@ -9,5 +9,12 @@ module.exports = defineConfig({
         'balm-ui-css': 'balm-ui/dist/balm-ui.css'
       }
     }
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        additionalData: '@import "@/styles/common/index.scss";'
+      }
+    }
   }
 })

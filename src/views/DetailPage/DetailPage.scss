@@ -3,6 +3,16 @@
         margin-bottom: 24px;
     }
 
+    &__container {
+        @include max-w(840) {
+            grid-column-end: span 12 !important;
+
+            > img {
+                max-width: 290px;
+            }
+        }
+    }
+
     &__info {
         &-container {
             display: flex;
@@ -28,6 +38,10 @@
             font-weight: 700;
             text-transform: capitalize;
             text-align: left;
+
+            @include max-w(840) {
+                flex: 0 1 25%;
+            }
         }
 
         &-overview {

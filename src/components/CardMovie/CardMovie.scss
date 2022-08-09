@@ -33,14 +33,27 @@
     }
 
     &__action {
-        display: inline-flex;
-        align-items: center;
-        margin-right: 8px;
+        display: flex;
+
+        &-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 8px;
+        }
 
         &-icon {
             margin-left: 4px;
             margin-right: 4px;
             cursor: pointer;
+        }
+
+        @include max-w(600) {
+            flex-wrap: wrap;
+
+            &-wrapper {
+                width: 100%;
+            }
         }
     }
 

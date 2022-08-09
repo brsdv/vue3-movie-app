@@ -40,12 +40,23 @@ img {
     > img {
         width: 100%;
         max-width: 50px;
+
+        @include max-w(600) {
+            max-width: 40px;
+            margin-left: 10px;
+        }
     }
 }
 
 .swiper {
     width: 600px;
     height: 400px;
+
+    @include max-w(840) {
+        width: 100%;
+        height: auto;
+        margin: 16px 0;
+    }
 }
 
 .swiper-slide {
